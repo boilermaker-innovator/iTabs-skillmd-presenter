@@ -8,7 +8,6 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-```
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: #0f1419;
@@ -230,7 +229,6 @@
     .itab-content code { background: #0f1419; padding: 2px 6px; border-radius: 4px; }
     .itab-content pre { background: #0f1419; padding: 12px; border-radius: 6px; overflow-x: auto; margin: 10px 0; }
 </style>
-```
 
 </head>
 <body>
@@ -238,7 +236,6 @@
         <h1>iTabs SKILL.md Presenter</h1>
         <p class="subtitle">Ugly file in → Beautiful preview out</p>
 
-```
     <!-- AI Mode Banner (shown when loaded via URL params) -->
     <div class="ai-mode-banner" id="aiBanner" style="display: none;">
         <span class="icon">🤖</span>
@@ -286,7 +283,6 @@
         </ul>
     </div>
 </div>
-```
 
 <script>
 // Store parsed data
@@ -508,7 +504,6 @@ function parseContent(text) {
     text = text.replace(/```[\s\S]*?```/g, function(m) {
         return '<pre><code>' + escapeHtml(m.replace(/```\w*/g, '').trim()) + '</code></pre>';
 
-```
 });
 
 // Bold
@@ -538,7 +533,6 @@ for (var i = 0; i < lines.length; i++) {
 if (inList) result.push('</ul>');
 
 return result.join('') || '<p><em>No content</em></p>';
-```
 
 }
 
@@ -557,9 +551,7 @@ var s = parsedData.sections[i];
 sections += ‘<div class="itab"><div class="itab-header" onclick="toggle(this)"><div class="itab-title"><span class="itab-num">’ + (i+1) + ‘</span><span class="itab-name">’ + escapeHtml(s.title) + ‘</span></div><button class="itab-toggle">+</button></div><div class="itab-content">’ + parseContent(s.content.join(’\n’)) + ‘</div></div>’;
 }
 
-```
 return '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + escapeHtml(parsedData.name) + '</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:#0f1419;color:#e7e9ea;padding:20px;max-width:700px;margin:0 auto;line-height:1.6}.header{background:linear-gradient(135deg,rgba(120,86,255,0.2),rgba(29,155,240,0.2));border:1px solid #7856ff;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px}.header h1{color:#7856ff;font-size:1.5rem;margin-bottom:8px}.header p{color:#8b98a5;font-size:14px}.itab{background:#1a1f26;border:1px solid #2f3336;border-radius:10px;margin-bottom:10px;overflow:hidden}.itab-header{display:flex;justify-content:space-between;align-items:center;padding:15px;cursor:pointer}.itab-header:hover{background:#242b35}.itab-title{display:flex;align-items:center;gap:10px}.itab-num{width:28px;height:28px;background:#7856ff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold}.itab-name{font-weight:600}.itab-toggle{width:26px;height:26px;background:#7856ff;border:none;border-radius:6px;color:white;font-weight:bold;cursor:pointer}.itab-toggle.open{background:#00ba7c}.itab-content{display:none;padding:15px;border-top:1px solid #2f3336;color:#8b98a5}.itab-content.show{display:block}.itab-content p{margin:10px 0}.itab-content ul{margin:10px 0;padding-left:20px}.itab-content li{margin:5px 0}.itab-content strong{color:#e7e9ea}.itab-content code{background:#0f1419;padding:2px 6px;border-radius:4px}.itab-content pre{background:#0f1419;padding:12px;border-radius:6px;overflow-x:auto;margin:10px 0}.footer{text-align:center;padding:20px;color:#8b98a5;font-size:12px}</style></head><body><div class="header"><h1>' + escapeHtml(parsedData.name) + '</h1><p>' + escapeHtml(parsedData.description) + '</p></div>' + sections + '<div class="footer">Created with iTabs SKILL.md Presenter</div><script>function toggle(h){var c=h.nextElementSibling,b=h.querySelector(".itab-toggle");if(c.classList.contains("show")){c.classList.remove("show");b.classList.remove("open");b.textContent="+"}else{c.classList.add("show");b.classList.add("open");b.textContent="-"}}<\/script></body></html>';
-```
 
 }
 </script>
